@@ -9,7 +9,7 @@ function Header() {
                     <div className="md:flex md:items-center md:gap-12">
                         
                         {/* logo */}
-                        <Image src="/logo.svg" alt='logo' width={200} height={200}/>
+                        <Image src="/logo.svg" alt='logo' width={100} height={100}/>
                     </div>
 
                     <div className="hidden md:block">

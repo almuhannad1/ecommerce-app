@@ -1,17 +1,17 @@
-<svg  viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
-                                {/* <!-- Text "couses" --> */}
-                                <text x="10" y="70" font-family="Arial, sans-serif" font-size="60" font-weight="bold" fill="#00A99D">
-                                    couses
-                                </text>
-
-                                {/* <!-- Square icon --> */}
-                                <rect x="230" y="20" width="20" height="20" stroke="#FFA500" fill="none" stroke-width="2" />
-
-                                {/* <!-- Single person icon --> */}
-                                <path d="M260 30 a5,5 0 1,0 10,0 a5,5 0 1,0 -10,0 M265 35 v10 h-5 v15 h20 v-15 h-5 v-10" fill="#FFA500" />
-
-                                {/* <!-- Group of people icon --> */}
-                                <path d="M290 40 a3,3 0 1,0 6,0 a3,3 0 1,0 -6,0 M293 43 v6 h-3 v9 h12 v-9 h-3 v-6" fill="#FFA500" />
-                                <path d="M283 45 a3,3 0 1,0 6,0 a3,3 0 1,0 -6,0 M286 48 v6 h-3 v9 h12 v-9 h-3 v-6" fill="#FFA500" />
-                                <path d="M297 45 a3,3 0 1,0 6,0 a3,3 0 1,0 -6,0 M300 48 v6 h-3 v9 h12 v-9 h-3 v-6" fill="#FFA500" />
-                            </svg>
+<svg width="300" height="100" viewBox="0 0 300 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Text "couses" -->
+  <text x="10" y="70" font-family="Arial, sans-serif" font-size="60" font-weight="bold" fill="#00A99D">
+    couses
+  </text>
+  
+  <!-- Square icon -->
+  <rect x="230" y="20" width="20" height="20" stroke="#FFA500" fill="none" stroke-width="2"/>
+  
+  <!-- Single person icon -->
+  <path d="M260 30 a5,5 0 1,0 10,0 a5,5 0 1,0 -10,0 M265 35 v10 h-5 v15 h20 v-15 h-5 v-10" fill="#FFA500"/>
+  
+  <!-- Group of people icon -->
+  <path d="M290 40 a3,3 0 1,0 6,0 a3,3 0 1,0 -6,0 M293 43 v6 h-3 v9 h12 v-9 h-3 v-6" fill="#FFA500"/>
+  <path d="M283 45 a3,3 0 1,0 6,0 a3,3 0 1,0 -6,0 M286 48 v6 h-3 v9 h12 v-9 h-3 v-6" fill="#FFA500"/>
+  <path d="M297 45 a3,3 0 1,0 6,0 a3,3 0 1,0 -6,0 M300 48 v6 h-3 v9 h12 v-9 h-3 v-6" fill="#FFA500"/>
+</svg>
