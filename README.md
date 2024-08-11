@@ -1,4 +1,4 @@
 
-Ui - hyperui library
-Logo - logoipsum
-Colors - #009B7D & #FFBF5D
+* Ui - hyperui library
+* Logo - logoipsum
+* Colors - #009B7D & #FFBF5D
