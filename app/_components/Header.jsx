@@ -4,39 +4,35 @@ import Image from 'next/image'
 function Header() {
     return (
         <header className="bg-white">
-            <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
+            <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 shadow-md">
                 <div className="flex h-16 items-center justify-between">
                     <div className="md:flex md:items-center md:gap-12">
-                        
+
                         {/* logo */}
-                        <Image src="/logo.svg" alt='logo' width={100} height={100}/>
+                        <Image src="/logo.svg" alt='logo' width={100} height={100} />
                     </div>
 
                     <div className="hidden md:block">
                         <nav aria-label="Global">
                             <ul className="flex items-center gap-6 text-sm">
                                 <li>
-                                    <a className="text-gray-500 transition hover:text-gray-500/75" href="#"> About </a>
+                                    <a className="text-gray-500 transition hover:text-secondary" href="#"> Home </a>
                                 </li>
 
                                 <li>
-                                    <a className="text-gray-500 transition hover:text-gray-500/75" href="#"> Careers </a>
+                                    <a className="text-gray-500 transition hover:text-secondary" href="#"> Explore </a>
                                 </li>
 
                                 <li>
-                                    <a className="text-gray-500 transition hover:text-gray-500/75" href="#"> History </a>
+                                    <a className="text-gray-500 transition hover:text-secondary" href="#"> Projects </a>
                                 </li>
 
                                 <li>
-                                    <a className="text-gray-500 transition hover:text-gray-500/75" href="#"> Services </a>
+                                    <a className="text-gray-500 transition hover:text-secondary" href="#"> About Us </a>
                                 </li>
 
                                 <li>
-                                    <a className="text-gray-500 transition hover:text-gray-500/75" href="#"> Projects </a>
-                                </li>
-
-                                <li>
-                                    <a className="text-gray-500 transition hover:text-gray-500/75" href="#"> Blog </a>
+                                    <a className="text-gray-500 transition hover:text-secondary" href="#"> Contact Us </a>
                                 </li>
                             </ul>
                         </nav>
@@ -45,7 +41,7 @@ function Header() {
                     <div className="flex items-center gap-4">
                         <div className="sm:flex sm:gap-4">
                             <a
-                                className="rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow"
+                                className="rounded-md bg-primary px-5 py-2.5 text-sm font-medium text-white shadow hover:bg-teal-800"
                                 href="#"
                             >
                                 Login
@@ -53,7 +49,7 @@ function Header() {
 
                             <div className="hidden sm:flex">
                                 <a
-                                    className="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600"
+                                    className="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-primary"
                                     href="#"
                                 >
                                     Register
