@@ -18,6 +18,7 @@ function ProductSection() {
   }
   return (
     <div className='px-10 md:px-20'>
+      <h2 className='my-4 text-xl'>Our Latest Products</h2>
       <ProductList productList={productList} />
     </div>
   )
