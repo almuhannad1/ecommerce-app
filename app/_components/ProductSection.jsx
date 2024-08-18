@@ -17,7 +17,7 @@ function ProductSection() {
     })
   }
   return (
-    <div>
+    <div className='px-10 md:px-20'>
       <ProductList productList={productList} />
     </div>
   )
