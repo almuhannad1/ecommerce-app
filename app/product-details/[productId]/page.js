@@ -5,8 +5,10 @@ import React, { useEffect, useState } from 'react'
 import ProductBanner from './_components/ProductBanner';
 import ProductInfo from './_components/ProductInfo';
 import ProductList from '@/app/_components/ProductList';
+import { usePathname } from 'next/navigation';
 
 function ProductDetails({ params }) {
+    const path = usePathname();
     const [productDetails, setProductDetails] = useState({})
     const [productList, setProductList] = useState([])
 
@@ -32,7 +34,7 @@ function ProductDetails({ params }) {
     }
     return (
         <div className='px-10 md:px-28 py-8'>
-            <BreadCrumb />
+            <BreadCrumb path={path}/>
             {/* Product Banner & Product Info */}
             <div className='grid grid-cols-1 sm:grid-cols-2 mt-10 gap-5 sm:gap-0 md:flex-row justify-around'>
                 <ProductBanner product={productDetails} />
