@@ -1,4 +1,6 @@
+'use client'
 import React from 'react'
+import { useRouter } from 'next/navigation';
 
 // icons
 import { ShoppingCart } from 'lucide-react';
@@ -6,8 +8,20 @@ import { BadgeCheck } from 'lucide-react';
 import { BadgeAlert } from 'lucide-react';
 import SkeletonProductInfo from './SkeletonProductInfo';
 
+// clerk
+import {useUser} from '@clerk/nextjs'
+
 function ProductInfo({ product }) {
-  console.log()
+  const router = useRouter;
+  const {user} = useUser()
+  const handleAddToCart = () => {
+    if (!user) {
+      router.pus('/sign-in')
+    } else {
+      
+    }
+  }
+
   return (
     <div>
       {product?.id ?
@@ -25,7 +39,7 @@ function ProductInfo({ product }) {
           {/* Price */}
           <h2 className='text-[32px] text-primary mt-3'>${product?.attributes?.price}</h2>
           {/* Add to cart */}
-          <button className='flex gap-2 bg-primary hover:bg-secondary rounded-lg text-white p-3'><ShoppingCart /> Add to Cart</button>
+          <button onClick={() => handleAddToCart()} className='flex gap-2 bg-primary hover:bg-secondary rounded-lg text-white p-3'><ShoppingCart /> Add to Cart</button>
         </div>
         :
         <SkeletonProductInfo />
