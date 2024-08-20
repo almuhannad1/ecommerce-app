@@ -1,6 +1,7 @@
 'use client'
-import React from 'react'
+import React, { useContext } from 'react'
 import { useRouter } from 'next/navigation';
+import { CartContext } from '../../../_context/CartContext'
 
 // icons
 import { ShoppingCart } from 'lucide-react';
@@ -15,6 +16,7 @@ import CartApis from '../../../_utils/CartApis';
 function ProductInfo({ product }) {
   const router = useRouter();
   const { user } = useUser()
+  const { cart, setCart } = useContext(CartContext)
 
   const handleAddToCart = () => {
     if (!user) {
@@ -27,8 +29,13 @@ function ProductInfo({ product }) {
           product: [product?.id]
         }
       }
-      CartApis.addToCart(data).then(res=> {
-        console.log("cart added")
+      CartApis.addToCart(data).then(res => {
+        console.log("Done")
+        setCart(oldCart => [...oldCart,
+        {
+          id: res?.data?.data?.id,
+          product
+        }])
       }).catch(err => {
         console.log(err)
       })
