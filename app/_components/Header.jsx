@@ -8,6 +8,7 @@ import { UserButton, useUser } from '@clerk/nextjs'
 
 // icon
 import { ShoppingCart } from 'lucide-react';
+import CartApis from '../_utils/CartApis';
 
 function Header() {
     const { cart, setCart } = useContext(CartContext)
@@ -16,7 +17,27 @@ function Header() {
     useEffect(() => {
         setIsLoggedIn(window.location.href.toString().includes('sign-in'))
     }, [])
+
     const { user } = useUser();
+
+    useEffect(() => {
+        user && getCartItems();
+    }, [user])
+    const getCartItems = () => {
+        CartApis.getUserCartItems(user.primaryEmailAddress.emailAddress).then(res => {
+            console.log("=>= ", res?.data?.data)
+            res?.data?.data?.forEach(citem => {
+                setCart((oldCart) => [
+                    ...oldCart,
+                    {
+                        id: citem.id,
+                        product: citem?.attributes?.products?.data[0]
+                    }
+                ])
+            })
+        })
+    }
+
     return !isLoggedIn && (
         <header className="bg-white">
             <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 shadow-md">
