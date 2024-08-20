@@ -19,11 +19,13 @@ function ProductDetails({ params }) {
     const getProductById_ = () => {
         ProductApis.getProductById(params?.productId)
             .then(res => {
-                console.log(res.data.data)
-                setProductDetails(res.data.data)
-                getProductByCategory_(res.data.data)
+                setProductDetails(res.data.data);
+                getProductByCategory_(res.data.data);
             })
-    }
+            .catch(err => {
+                console.error("Error fetching product details:", err);
+            });
+    };
 
     const getProductByCategory_ = (product) => {
         ProductApis.getProductByCategory(product?.attributes?.category)
@@ -34,7 +36,7 @@ function ProductDetails({ params }) {
     }
     return (
         <div className='px-10 md:px-28 py-8'>
-            <BreadCrumb path={path}/>
+            <BreadCrumb path={path} />
             {/* Product Banner & Product Info */}
             <div className='grid grid-cols-1 sm:grid-cols-2 mt-10 gap-5 sm:gap-0 md:flex-row justify-around'>
                 <ProductBanner product={productDetails} />
