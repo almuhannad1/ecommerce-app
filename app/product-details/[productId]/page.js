@@ -1,10 +1,10 @@
 'use client'
-import BreadCrumb from '@/app/_components/BreadCrumb';
-import ProductApis from '@/app/_utils/ProductApis'
 import React, { useEffect, useState } from 'react'
+import BreadCrumb from '../../_components/BreadCrumb';
+import ProductApis from '../../_utils/ProductApis'
 import ProductBanner from './_components/ProductBanner';
 import ProductInfo from './_components/ProductInfo';
-import ProductList from '@/app/_components/ProductList';
+import ProductList from '../../_components/ProductList';
 import { usePathname } from 'next/navigation';
 
 function ProductDetails({ params }) {
@@ -30,10 +30,11 @@ function ProductDetails({ params }) {
     const getProductByCategory_ = (product) => {
         ProductApis.getProductByCategory(product?.attributes?.category)
             .then(res => {
-                console.log(res?.data?.data)
+                console.log(" = =", res?.data?.data)
                 setProductList(res?.data?.data)
             })
     }
+
     return (
         <div className='px-10 md:px-28 py-8'>
             <BreadCrumb path={path} />

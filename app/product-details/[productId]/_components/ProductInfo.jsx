@@ -9,16 +9,29 @@ import { BadgeAlert } from 'lucide-react';
 import SkeletonProductInfo from './SkeletonProductInfo';
 
 // clerk
-import {useUser} from '@clerk/nextjs'
+import { useUser } from '@clerk/nextjs'
+import CartApis from '../../../_utils/CartApis';
 
 function ProductInfo({ product }) {
-  const router = useRouter;
-  const {user} = useUser()
+  const router = useRouter();
+  const { user } = useUser()
+
   const handleAddToCart = () => {
     if (!user) {
-      router.pus('/sign-in')
+      router.push('/sign-in')
     } else {
-      
+      const data = {
+        data: {
+          username: user.fullName,
+          email: user.primaryEmailAddress.emailAddress,
+          product: [product?.id]
+        }
+      }
+      CartApis.addToCart(data).then(res=> {
+        console.log("cart added")
+      }).catch(err => {
+        console.log(err)
+      })
     }
   }
 
