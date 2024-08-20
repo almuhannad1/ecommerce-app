@@ -1,7 +1,12 @@
 'use client'
 import React from 'react'
 import Image from 'next/image'
-import { useUser } from '@clerk/nextjs'
+
+// clerk
+import { UserButton, useUser } from '@clerk/nextjs'
+
+// icon
+import { ShoppingCart } from 'lucide-react';
 
 function Header() {
     const { user } = useUser();
@@ -42,23 +47,31 @@ function Header() {
                     </div>
 
                     <div className="flex items-center gap-4">
-                        <div className="sm:flex sm:gap-4">
-                            <a
-                                className="rounded-md bg-primary px-5 py-2.5 text-sm font-medium text-white shadow hover:bg-teal-800"
-                                href="#"
-                            >
-                                Login
-                            </a>
-
-                            <div className="hidden sm:flex">
+                        {!user ?
+                            <div className="sm:flex sm:gap-4">
                                 <a
-                                    className="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-primary"
-                                    href="#"
+                                    className="rounded-md bg-primary px-5 py-2.5 text-sm font-medium text-white shadow hover:bg-teal-800"
+                                    href="/sign-in"
                                 >
-                                    Register
+                                    Login
                                 </a>
+
+                                <div className="hidden sm:flex">
+                                    <a
+                                        className="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-primary"
+                                        href="#"
+                                    >
+                                        Register
+                                    </a>
+                                </div>
                             </div>
-                        </div>
+                            :
+                            <div className='flex items-center gap-5'>
+                                <h2 className='flex gap-1 cursor-pointer'><ShoppingCart />(0)</h2>
+                                <UserButton afterSignOutUrl='/sign-in' />
+                            </div>
+
+                        }
 
                         <div className="block md:hidden">
                             <button className="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75">
