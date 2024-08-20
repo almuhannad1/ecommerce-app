@@ -1,8 +1,11 @@
+'use client'
 import React from 'react'
 import Image from 'next/image'
+import { useUser } from '@clerk/nextjs'
 
 function Header() {
-    return (
+    const { user } = useUser();
+    return user && (
         <header className="bg-white">
             <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 shadow-md">
                 <div className="flex h-16 items-center justify-between">
