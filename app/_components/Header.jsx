@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 
 // clerk
@@ -9,8 +9,12 @@ import { UserButton, useUser } from '@clerk/nextjs'
 import { ShoppingCart } from 'lucide-react';
 
 function Header() {
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    useEffect(() => {
+        setIsLoggedIn(window.location.href.toString().includes('sign-in'))
+    }, [])
     const { user } = useUser();
-    return user && (
+    return !isLoggedIn && (
         <header className="bg-white">
             <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 shadow-md">
                 <div className="flex h-16 items-center justify-between">
@@ -68,7 +72,7 @@ function Header() {
                             :
                             <div className='flex items-center gap-5'>
                                 <h2 className='flex gap-1 cursor-pointer'><ShoppingCart />(0)</h2>
-                                <UserButton afterSignOutUrl='/sign-in' />
+                                <UserButton afterSignOutUrl='/' />
                             </div>
 
                         }
