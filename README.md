@@ -6,3 +6,4 @@
 * Store the media 3th party - cloudinary
 * Icons - lucide-react
 * Authentication - Clerk
+* Checkout - stripe
