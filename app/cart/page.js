@@ -2,6 +2,7 @@
 import React, { useContext } from 'react'
 import { CartContext } from '../_context/CartContext'
 import CartApis from '../_utils/CartApis';
+import Link from 'next/link';
 
 function Cart() {
     const { cart, setCart } = useContext(CartContext);
@@ -94,12 +95,12 @@ function Cart() {
                                 </dl>
 
                                 <div className="flex justify-end">
-                                    <a
-                                        href="#"
+                                    <Link
+                                        href="/checkout"
                                         className="block rounded bg-primary px-5 py-3 text-sm text-gray-100 transition hover:bg-secondary"
                                     >
                                         Checkout
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
