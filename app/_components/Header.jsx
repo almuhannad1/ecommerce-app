@@ -13,6 +13,7 @@ import CartApis from '../_utils/CartApis';
 
 function Header() {
     const { cart, setCart } = useContext(CartContext)
+    const [openCart, setOpenCart] = useState(false)
     const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     useEffect(() => {
@@ -97,9 +98,9 @@ function Header() {
                             :
                             <div className='flex items-center gap-5'>
                                 {/* Cart */}
-                                <h2 className='flex gap-1 cursor-pointer'><ShoppingCart />{(cart?.length)}</h2>
+                                <h2 className='flex gap-1 cursor-pointer'><ShoppingCart onClick={() => setOpenCart(!openCart)} />{(cart?.length)}</h2>
                                 <UserButton afterSignOutUrl='/' />
-                                <Cart />
+                                {openCart && <Cart />}
                             </div>
 
                         }
