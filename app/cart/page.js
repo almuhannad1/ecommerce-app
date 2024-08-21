@@ -3,8 +3,10 @@ import React, { useContext } from 'react'
 import { CartContext } from '../_context/CartContext'
 import CartApis from '../_utils/CartApis';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 function Cart() {
+    const router = useRouter()
     const { cart, setCart } = useContext(CartContext);
 
     const getTotalAmount = () => {
@@ -95,12 +97,12 @@ function Cart() {
                                 </dl>
 
                                 <div className="flex justify-end">
-                                    <Link
-                                        href="/checkout"
+                                    <button
+                                        onClick={() => router.push(`/checkout?amount=${getTotalAmount()}`)}
                                         className="block rounded bg-primary px-5 py-3 text-sm text-gray-100 transition hover:bg-secondary"
                                     >
                                         Checkout
-                                    </Link>
+                                    </button>
                                 </div>
                             </div>
                         </div>
