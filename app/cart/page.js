@@ -103,6 +103,7 @@ function Cart() {
                                 </div>
                             </div>
                         </div>
+                            <h2 className='text-gray-600 text-[12px]'>Note: All items will sent via email</h2>
                     </div>
                 </div>
             </div>
