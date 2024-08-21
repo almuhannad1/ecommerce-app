@@ -1,4 +1,4 @@
-import axiosClient from './axiosClient'; // Use import instead of require
+const { default: axiosClient } = require('./axiosClient');
 
 const addToCart = (payload) => axiosClient.post('/carts', payload);
 

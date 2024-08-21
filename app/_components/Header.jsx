@@ -2,6 +2,7 @@
 import React, { useEffect, useState, useContext } from 'react'
 import Image from 'next/image'
 import { CartContext } from '../_context/CartContext';
+import Cart from '../_components/Cart'
 
 // clerk
 import { UserButton, useUser } from '@clerk/nextjs'
@@ -31,7 +32,7 @@ function Header() {
                     ...oldCart,
                     {
                         id: citem.id,
-                        product: citem?.attributes?.products?.data[0]
+                        products: citem?.attributes?.products?.data[0]
                     }
                 ])
             })
@@ -95,8 +96,10 @@ function Header() {
                             </div>
                             :
                             <div className='flex items-center gap-5'>
+                                {/* Cart */}
                                 <h2 className='flex gap-1 cursor-pointer'><ShoppingCart />{(cart?.length)}</h2>
                                 <UserButton afterSignOutUrl='/' />
+                                <Cart />
                             </div>
 
                         }

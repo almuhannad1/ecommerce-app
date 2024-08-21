@@ -2,6 +2,7 @@
 import React, { useContext } from 'react'
 import { useRouter } from 'next/navigation';
 import { CartContext } from '../../../_context/CartContext'
+import CartApis from '../../../_utils/CartApis';
 
 // icons
 import { ShoppingCart } from 'lucide-react';
@@ -11,7 +12,6 @@ import SkeletonProductInfo from './SkeletonProductInfo';
 
 // clerk
 import { useUser } from '@clerk/nextjs'
-import CartApis from '../../../_utils/CartApis';
 
 function ProductInfo({ product }) {
   const router = useRouter();
@@ -22,23 +22,27 @@ function ProductInfo({ product }) {
     if (!user) {
       router.push('/sign-in')
     } else {
+      // To add  to cart
       const data = {
         data: {
           username: user.fullName,
           email: user.primaryEmailAddress.emailAddress,
-          product: [product?.id]
+          products: [product?.id]
         }
       }
-      CartApis.addToCart(data).then(res => {
-        console.log("Done")
-        setCart(oldCart => [...oldCart,
-        {
-          id: res?.data?.data?.id,
-          product
-        }])
-      }).catch(err => {
-        console.log(err)
-      })
+
+      CartApis.addToCart(data)
+        .then(res => {
+          console.log("Done ", res)
+          setCart(oldCart => [...oldCart,
+          {
+            id: res?.data?.data?.id,
+            product
+          }])
+        }).catch(err => {
+          console.log("Error ", err)
+        })
+
     }
   }
 
