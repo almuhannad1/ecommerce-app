@@ -54,7 +54,7 @@ function Header() {
                         <nav aria-label="Global">
                             <ul className="flex items-center gap-6 text-sm">
                                 <li>
-                                    <a className="text-gray-500 transition hover:text-secondary" href="#"> Home </a>
+                                    <a className="text-gray-500 transition hover:text-secondary" href="/"> Home </a>
                                 </li>
 
                                 <li>
