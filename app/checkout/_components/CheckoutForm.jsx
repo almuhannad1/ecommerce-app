@@ -31,6 +31,8 @@ const CheckoutForm = ({ amount }) => {
 
         // Create new order
         createOrder()
+        // Send email 
+        sendEmail()
 
         // Trigger form validation and wallet collection
         const { error: submitError } = await elements.submit();
@@ -40,7 +42,7 @@ const CheckoutForm = ({ amount }) => {
         }
 
         const res = await fetch('api/create-intent', {
-            method: "post",
+            method: "POST",
             body: JSON.stringify({
                 amount: amount
             })
@@ -88,6 +90,12 @@ const CheckoutForm = ({ amount }) => {
                     })
                 })
             }
+        })
+    }
+
+    const sendEmail = async () => {
+        const res = await fetch('api/send-email', {
+            method: "POST",
         })
     }
 
