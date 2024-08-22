@@ -8,3 +8,4 @@
 * Authentication - Clerk
 * Checkout - stripe
 * Email - resend
+* Email components - react.email
