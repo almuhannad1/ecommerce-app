@@ -7,3 +7,4 @@
 * Icons - lucide-react
 * Authentication - Clerk
 * Checkout - stripe
+* Email - resend
