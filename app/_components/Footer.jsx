@@ -1,6 +1,7 @@
 'use client'
 import React from 'react'
 import { useUser } from '@clerk/nextjs'
+import Image from 'next/image';
 
 function Footer() {
   const { user } = useUser();

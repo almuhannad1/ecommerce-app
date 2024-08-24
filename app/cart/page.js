@@ -2,7 +2,6 @@
 import React, { useContext } from 'react'
 import { CartContext } from '../_context/CartContext'
 import CartApis from '../_utils/CartApis';
-import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
 function Cart() {
@@ -15,8 +14,10 @@ function Cart() {
             totalAmount += Number(item?.products?.attributes?.price);
         });
 
-        return totalAmount;
-    }
+        let finalResult = totalAmount.toFixed(3)
+        return finalResult;
+    };
+
 
     const deleteCartItemFromList = (itemId) => {
         CartApis.deleteCartItem(itemId)
@@ -92,7 +93,7 @@ function Cart() {
                                 <dl className="space-y-0.5 text-sm text-gray-700">
                                     <div className="flex justify-between !text-base font-medium">
                                         <dt>Total</dt>
-                                        <dd>$ {getTotalAmount().toFixed(3)}</dd>
+                                        <dd>$ {getTotalAmount()}</dd>
                                     </div>
                                 </dl>
 
@@ -106,7 +107,7 @@ function Cart() {
                                 </div>
                             </div>
                         </div>
-                            <h2 className='text-gray-600 text-[12px]'>Note: All items will sent via email</h2>
+                        <h2 className='text-gray-600 text-[12px]'>Note: All items will sent via email</h2>
                     </div>
                 </div>
             </div>

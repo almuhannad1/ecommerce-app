@@ -55,7 +55,7 @@ const CheckoutForm = ({ amount }) => {
             clientSecret,
             elements,
             confirmParams: {
-                return_url: `http://localhost:3000/payment-confirm?amount=${amount}`,
+                return_url: `http://localhost:3000/payment-confirm`,
             },
         });
 
@@ -96,6 +96,11 @@ const CheckoutForm = ({ amount }) => {
     const sendEmail = async () => {
         const res = await fetch('api/send-email', {
             method: "POST",
+            body: JSON.stringify({
+                amount: amount,
+                email: user.primaryEmailAddress.emailAddress,
+                fullName: user.fullName
+            })
         })
     }
 

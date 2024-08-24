@@ -99,7 +99,7 @@ function Header() {
                             <div className='flex items-center gap-5'>
                                 {/* Cart */}
                                 <h2 className='flex gap-1 cursor-pointer'><ShoppingCart onClick={() => setOpenCart(!openCart)} />{(cart?.length)}</h2>
-                                <UserButton afterSignOutUrl='/' />
+                                <UserButton afterSignOutUrl="/" />
                                 {openCart && <Cart />}
                             </div>
 

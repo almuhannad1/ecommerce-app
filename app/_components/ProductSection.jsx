@@ -1,7 +1,7 @@
 'use client'
+import React, { useEffect, useState } from 'react'
 import ProductList from './ProductList'
 import ProductApis from '../_utils/ProductApis'
-import { useEffect, useState } from 'react'
 
 function ProductSection() {
   const [productList, setProductList] = useState([]);
